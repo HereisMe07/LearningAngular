@@ -3,12 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgTemplateOutlet, NgFor],
+  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf,
+            NgTemplateOutlet, NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,11 +18,15 @@ export class AppComponent {
   users: Array<string> = ['john', 'sam', 'smith', 'Raj'];
 
   usersObj: Array<any> = [
-    { id: 1, name: 'nita', email: 'nita@gmail.com' },
-    { id: 2, name: 'gech', email: 'gech@gmail.com' },
-    { id: 3, name: 'nisa', email: 'nisa@gmail.com' },
-    { id: 4, name: 'pich', email: 'pich@gmail.com' },
+    // { id: 1, name: 'nita', email: 'nita@gmail.com' },
+    // { id: 2, name: 'gech', email: 'gech@gmail.com' },
+    // { id: 3, name: 'nisa', email: 'nisa@gmail.com' },
+    // { id: 4, name: 'pich', email: 'pich@gmail.com' },
   ]
+
+  // constructor() {
+  //   console.log(this.usersObj.length);
+  // }
 
   addNewUser() {
     let user = { id: 5, name: 'user 1', email: 'user1@gmail.com'}
@@ -31,6 +36,9 @@ export class AppComponent {
     let index = this.usersObj.indexOf(user);  //(ah indexOf ke kit pel ke joch btn delete pel ke index = usersObj pel ke joch delete tv ah index ng vea tv rok lek delete pi 0 1 2 3 from user:object ng)
     this.usersObj.splice(index, 1);
   }
+  // onDelete(index: number) {
+  //   this.usersObj.splice(index,1)
+  // }
 
   // isLoggedIn: Boolean = false;
   // userName: string = 'Nia so';
@@ -85,6 +93,8 @@ export class AppComponent {
   // Delete(user:HTMLInputElement) {
   //   console.log(user.value);
   // }
+
+  usersRole: string = 'Editor';
   }
 
   

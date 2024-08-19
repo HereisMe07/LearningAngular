@@ -27,18 +27,37 @@
             </ul> -->
 <!-- Fetch (Array Objects) -->
         <!-- old way -->             
-            <ul>
-                <li *ngFor="let user of usersObj; let i = index">{{i}} {{user.email}} <button (click)="onDelete(user)">Delete</button></li>
-            </ul>
+            <!-- <ul>
+                <li *ngFor="let user of usersObj; let i = index">{{i}} {{user.email}} <button (click)="onDelete(i)">Delete</button></li>
+            </ul> -->
         <!-- new way -->
-            <ul>
-                @for (user of usersObj; track user) {
-                    <li>{{user.name}}</li>
+            <!-- <div *ngIf="usersObj.length == 0">
+                <p>No Users to Display</p>
+            </div> -->
+
+
+            <!-- <ul>
+                @if (usersObj.length == 0) {
+                    <p> No Users to Display - Loaded Using Syntax </p>
                 }
-            </ul>
+            </ul> -->
+
+            <!-- <ul>
+
+                @for (user of usersObj; track user;let i = $index; let usersCount = $count; let first = $first; let last = $last; let even = $even; let odd = $odd;) {
+                    <li>
+                        {{even}} - {{odd}} - {{usersCount}} - {{i}} {{user.name}} 
+                        <button (click)="onDelete(user)">Delete</button>
+                    </li>
+                }
+                @empty {
+                    <p> No Users to Display - Loaded Using Empty Syntax </p>
+                }
+
+            </ul> -->
 
 <!-- Change Detection I -->
-        <button (click)="addNewUser()" >Add New User</button>
+        <!-- <button (click)="addNewUser()" >Add New User</button> -->
 <!-- index of (For Loop) -->
 
 <!-- @if, @else Syntax Approach -->
@@ -149,3 +168,25 @@
         
         <!-- <input type="text" [(ngModel)]="userName">
         <h3>{{userName}}</h3> -->
+
+<!-- Ng SwitchCase --> 
+
+        <div [ngSwitch]="usersRole">
+            <p *ngSwitchCase="'Admin'">Welcome Admin</p>
+            <p *ngSwitchCase="'Member'">Welcome Member</p>
+            <p *ngSwitchCase="'Guest'">Welcome Guest</p>
+
+            <p *ngSwitchDefault>Please Login</p>  <!-- ber ke ot vai value jol te vea rok ot see vea jab ngSwitchDefault mok -->
+        </div>
+<!--  Angular Syntax ( Switch, Case Default) --> 
+        @switch (usersRole) {
+            @case ('Admin') {
+                <p>Welcome Admin</p>
+            }
+            @case ('Member') {
+                <p>Welcome Member</p>
+            }
+            @case ('Editor') {
+                <p>Welcome Editor</p>
+            }
+        }
