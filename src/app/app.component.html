@@ -171,15 +171,15 @@
 
 <!-- Ng SwitchCase --> 
 
-        <div [ngSwitch]="usersRole">
+        <!-- <div [ngSwitch]="usersRole">
             <p *ngSwitchCase="'Admin'">Welcome Admin</p>
             <p *ngSwitchCase="'Member'">Welcome Member</p>
             <p *ngSwitchCase="'Guest'">Welcome Guest</p>
 
-            <p *ngSwitchDefault>Please Login</p>  <!-- ber ke ot vai value jol te vea rok ot see vea jab ngSwitchDefault mok -->
-        </div>
+            <p *ngSwitchDefault>Please Login</p>  ber ke ot vai value jol te vea rok ot see vea jab ngSwitchDefault mok -->
+        <!-- </div> -->
 <!--  Angular Syntax ( Switch, Case Default) --> 
-        @switch (usersRole) {
+        <!-- @switch (usersRole) {
             @case ('Admin') {
                 <p>Welcome Admin</p>
             }
@@ -189,4 +189,11 @@
             @case ('Editor') {
                 <p>Welcome Editor</p>
             }
-        }
+        } -->
+
+<!-- Parent to Child Component -->
+
+<!-- <h1>{{appPostTitle}} (app)</h1>
+<app-posts-list [postListTitle]="appPostTitle"[postIsLogin]="appIsLogin"></app-posts-list> -->
+
+<!-- Child to Parent Component -->
